@@ -1,4 +1,33 @@
-<div>
-  <button (click)="showNewUserForm()">Register new user</button>
-  <app-user-list></app-user-list>
+
+<div class="container">
+  <div class="row mb-5 mt-5">
+    <div class="col">
+    </div>
+
+    <div class="col-7 box pt-4 pb-4">
+      <div class="row">
+        <div class="col-6 text-start">
+          <app-user-search (filter)="filter = $event"></app-user-search>
+        </div>
+
+        <div class="col-6 text-end">
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="onCreateUser()">
+              <mat-icon aria-hidden="false" fontIcon="add" id="register"></mat-icon>
+              Register Add User
+            </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <app-user-list [users]="users" [filter]="filter"></app-user-list>
+        </div>
+      </div>
+    </div>
+
+    <div class="col"></div>
+  </div>
 </div>
